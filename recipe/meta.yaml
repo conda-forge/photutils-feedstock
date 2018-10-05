@@ -24,6 +24,7 @@ requirements:
     - setuptools
     - numpy 1.10.*  # [py35]
     - numpy 1.11.*  # [py36]
+    - numpy 1.11.*  # [py37]
     - cython
   run:
     - python
