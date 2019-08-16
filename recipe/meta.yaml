@@ -1,7 +1,7 @@
 {% set name = "photutils" %}
-{% set version = "0.6" %}
+{% set version = "0.7" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "adaa0f189614ea9ef1936397ebfdbd308be65a569fee38f40a85bbd360da782e" %}
+{% set hash_value = "d10aeeeb460a66d423ca6bf97b67f4204d63937e6c4da6fb17776ad7e4629b22" %}
 
 package:
   name: '{{ name|lower }}'
@@ -13,7 +13,7 @@ source:
   '{{ hash_type }}': '{{ hash_value }}'
 
 build:
-  number: 1000
+  number: 0
   # Note: pip-based install fails due to wanting to download astropy-helpers
   script: python setup.py install --offline --single-version-externally-managed --record=files.txt
   skip: true  # [py27]
@@ -24,16 +24,21 @@ requirements:
   host:
     - python
     - setuptools
-    - numpy 1.10.*  # [py35]
-    - numpy 1.11.*  # [py>=36]
     - cython
+    - numpy >=1.13
   run:
     - python
-    - astropy
-    - {{ pin_compatible('numpy') }}
-    - pytest-astropy
+    - numpy >=1.13
+    - astropy >=2.0
+    - scipy
+    - matplotlib>=2.2
+    - scikit-image >=0.14.2
+    - scikit-learn
+    - gwcs >=0.11
 
 test:
+  requires:
+    - pytest-astropy
   imports:
     - photutils
     - photutils.aperture
@@ -51,15 +56,14 @@ test:
     - photutils.utils
 
 about:
-  home: http://photutils.readthedocs.io/
+  home: https://photutils.readthedocs.io/
   license: BSD 3-clause
   license_family: BSD
-  license_file: ''
+  license_file: LICENSE.rst
   summary: An Astropy package for photometry
   description: |
-    Photutils is an Astropy affiliated package to provide tools for detecting
-    and performing photometry of astronomical sources.  It is an open source
-    (BSD licensed) Python package.  Contributions welcome!
+    Photutils is an Astropy package for detection and photometry of
+    astronomical sources.
   doc_url: https://photutils.readthedocs.io/
   dev_url: https://github.com/astropy/photutils
 
