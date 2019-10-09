@@ -1,7 +1,7 @@
 {% set name = "photutils" %}
-{% set version = "0.7" %}
+{% set version = "0.7.1" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "d10aeeeb460a66d423ca6bf97b67f4204d63937e6c4da6fb17776ad7e4629b22" %}
+{% set hash_value = "4cd94de12e3496d44be85b62b22cfc6bad382a74b2e737c21602e7d6aa2223bf" %}
 
 package:
   name: '{{ name|lower }}'
@@ -31,7 +31,7 @@ requirements:
     - numpy >=1.13
     - astropy >=2.0
     - scipy
-    - matplotlib>=2.2
+    - matplotlib >=2.2
     - scikit-image >=0.14.2
     - scikit-learn
     - gwcs >=0.11
