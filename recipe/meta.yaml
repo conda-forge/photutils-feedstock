@@ -31,7 +31,7 @@ requirements:
     - numpy >=1.13
     - astropy >=2.0
     - scipy
-    - matplotlib>=2.2
+    - matplotlib >=2.2
     - scikit-image >=0.14.2
     - scikit-learn
     - gwcs >=0.11
