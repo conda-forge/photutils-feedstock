@@ -12,8 +12,7 @@ source:
 
 build:
   number: 0
-  # Note: pip-based install fails due to wanting to download astropy-helpers
-  script: python setup.py install --offline --single-version-externally-managed --record=files.txt
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   skip: true  # [py27]
 
 requirements:
@@ -22,17 +21,21 @@ requirements:
   host:
     - python
     - setuptools
-    - cython
-    - numpy >=1.13
+    - setuptools_scm
+    - cython >=0.29.14
+    - extension-helpers
+    - numpy >=1.17
+    - astropy >=4.0
   run:
     - python
-    - numpy >=1.13
-    - astropy >=2.0.12,!=3.0.*,!=3.1,!=3.1.1
-    - scipy
+    - numpy >=1.17
+    - astropy >=4.0
+    - pytest-astropy >=0.4
+    - gwcs >=0.12
     - matplotlib-base >=2.2
     - scikit-image >=0.14.2
-    - scikit-learn
-    - gwcs >=0.11
+    - scikit-learn >=0.19
+    - scipy >=0.19
 
 test:
   requires:
@@ -67,6 +70,6 @@ about:
 
 extra:
   recipe-maintainers:
-    - mwcraig
-    - bsipocz
     - larrybradley
+    - bsipocz
+    - mwcraig
