@@ -1,5 +1,5 @@
 {% set name = "photutils" %}
-{% set version = "1.0.1" %}
+{% set version = "1.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -8,10 +8,10 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 06f3ff7bef5058dca3eded3987b624a5bd8ad16334bbc3082274536968d25d16
+  sha256: 86f605e29276f081b80b7895fa2d95d545fd2a47ed1f47b283538cf05211c131
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [py27]
 
