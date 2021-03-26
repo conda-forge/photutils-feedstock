@@ -11,12 +11,16 @@ source:
   sha256: 1a71cac2db730af69ae31f1ff5f4671e7da816da93003ddcab7123c9df2935d3
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [py<37]
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
     - python
@@ -25,10 +29,12 @@ requirements:
     - setuptools_scm
     - cython >=0.29.14
     - extension-helpers
-    - numpy >=1.17
+    - numpy 1.17.*  # [py<39 and build_platform == target_platform and python_impl == 'cpython']
+    - numpy 1.20.*  # [py>=39 or build_platform != target_platform or  python_impl == 'pypy']
     - astropy >=4.0
   run:
     - python
+    - {{ pin_compatible("numpy") }}
     - numpy >=1.17
     - astropy >=4.0
     - pytest-astropy >=0.4
