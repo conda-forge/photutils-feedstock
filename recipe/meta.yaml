@@ -1,5 +1,5 @@
 {% set name = "photutils" %}
-{% set version = "1.1.0" %}
+{% set version = "1.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,10 +8,10 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 1a71cac2db730af69ae31f1ff5f4671e7da816da93003ddcab7123c9df2935d3
+  sha256: 8a060a09bf30f26157531d19f5aeedb1b5ec49ce379eb7df0dade460e76ffd25
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [py<37]
 
@@ -42,7 +42,8 @@ requirements:
     - matplotlib-base >=2.2
     - scikit-image >=0.14.2
     - scikit-learn >=0.19
-    - scipy >=0.19
+    - scipy >=1.6.0
+    - bottleneck
 
 test:
   requires:
