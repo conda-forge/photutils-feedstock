@@ -1,5 +1,5 @@
 {% set name = "photutils" %}
-{% set version = "1.5.0" %}
+{% set version = "1.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 014f7aa5a571401094d5cf9ffb57803b48869233feb80476ce377ecb91113689
+  sha256: 6da7f1bfef5f445161bc6f3fa4a6ae9599c727183c4f93c6e6e24aac0ced9370
 
 
 build:
@@ -28,7 +28,7 @@ requirements:
     - pip
     - setuptools
     - setuptools_scm
-    - cython >=0.29.22
+    - cython >=0.29.30
     - extension-helpers
     - numpy 1.18.*  # [py<39 and build_platform == target_platform and python_impl == 'cpython']
     - numpy  # [py>=39 or build_platform != target_platform or python_impl == 'pypy']
@@ -36,13 +36,13 @@ requirements:
   run:
     - python
     - {{ pin_compatible("numpy") }}
-    - numpy >=1.18
+    - numpy >=1.20
     - astropy >=5.0
     - pytest-astropy >=0.4
     - gwcs >=0.16
-    - matplotlib-base >=3.1
-    - scikit-image >=0.15.0
-    - scikit-learn >=0.19
+    - matplotlib-base >=3.3
+    - scikit-image >=0.18.0
+    - scikit-learn >=1.0
     - scipy >=1.6.0
     - bottleneck
     - tqdm
