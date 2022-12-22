@@ -30,8 +30,9 @@ requirements:
     - setuptools_scm
     - cython >=0.29.30
     - extension-helpers
-    - numpy 1.18.*  # [py<39 and build_platform == target_platform and python_impl == 'cpython']
-    - numpy  # [py>=39 or build_platform != target_platform or python_impl == 'pypy']
+#    - numpy 1.18.*  # [py<39 and build_platform == target_platform and python_impl == 'cpython']
+#    - numpy  # [py>=39 or build_platform != target_platform or python_impl == 'pypy']
+    - numpy
     - astropy >=5.0
   run:
     - python
