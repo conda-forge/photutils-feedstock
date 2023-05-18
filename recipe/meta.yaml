@@ -1,5 +1,5 @@
 {% set name = "photutils" %}
-{% set version = "1.7.0" %}
+{% set version = "1.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5f02ab667496c6ece3880f226c01715dab3904a35c15444d2bea520188aa04af
+  sha256: 2ccf397659f48109e760924c5a4cd324caf9e8cb86aa6946ebfc074547a3701e
 
 
 build:
@@ -30,20 +30,20 @@ requirements:
     - setuptools_scm
     - cython >=0.29.30
     - extension-helpers
-    - numpy 1.20.*  # [py<39 and build_platform == target_platform and python_impl == 'cpython']
+    - numpy 1.21.*  # [py<39 and build_platform == target_platform and python_impl == 'cpython']
     - numpy  # [py>=39 or build_platform != target_platform or python_impl == 'pypy']
     - astropy >=5.0
   run:
     - python
     - {{ pin_compatible("numpy") }}
-    - numpy >=1.20
+    - numpy >=1.21
     - astropy >=5.0
     - pytest-astropy >=0.4
-    - gwcs >=0.16
-    - matplotlib-base >=3.3
-    - scikit-image >=0.18.0
+    - gwcs >=0.18
+    - matplotlib-base >=3.5
+    - scikit-image >=0.19.0
     - scikit-learn >=1.0
-    - scipy >=1.6.0
+    - scipy >=1.7.0
     - bottleneck
     - tqdm
 
@@ -61,6 +61,7 @@ test:
     - photutils.geometry
     - photutils.isophote
     - photutils.morphology
+    - photutils.profiles
     - photutils.psf
     - photutils.psf.matching
     - photutils.segmentation
