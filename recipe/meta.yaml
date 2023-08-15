@@ -35,7 +35,6 @@ requirements:
   run:
     - python
     - {{ pin_compatible("numpy") }}
-    - numpy >=1.22
     - astropy >=5.0
     - gwcs >=0.18
     - matplotlib-base >=3.5
