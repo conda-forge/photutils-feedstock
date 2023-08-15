@@ -30,7 +30,7 @@ requirements:
     - setuptools_scm >=6.2
     - cython >=0.29.30
     - extension-helpers
-    - numpy >=1.22
+    - numpy
     - astropy >=5.0
   run:
     - python
