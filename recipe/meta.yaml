@@ -14,7 +14,7 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
-  skip: true  # [py<38]
+  skip: true  # [py<39]
 
 requirements:
   build:
@@ -27,18 +27,16 @@ requirements:
     - python
     - pip
     - setuptools
-    - setuptools_scm
+    - setuptools_scm >=6.2
     - cython >=0.29.30
     - extension-helpers
-    - numpy 1.21.*  # [py<39 and build_platform == target_platform and python_impl == 'cpython']
-    - numpy  # [py>=39 or build_platform != target_platform or python_impl == 'pypy']
+    - numpy >=1.22
     - astropy >=5.0
   run:
     - python
     - {{ pin_compatible("numpy") }}
-    - numpy >=1.21
+    - numpy >=1.22
     - astropy >=5.0
-    - pytest-astropy >=0.4
     - gwcs >=0.18
     - matplotlib-base >=3.5
     - scikit-image >=0.19.0
@@ -46,6 +44,8 @@ requirements:
     - scipy >=1.7.0
     - bottleneck
     - tqdm
+    - rasterio
+    - shapely
 
 test:
   requires:
