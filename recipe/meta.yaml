@@ -1,5 +1,5 @@
 {% set name = "photutils" %}
-{% set version = "1.8.0" %}
+{% set version = "1.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,37 +8,36 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 2ccf397659f48109e760924c5a4cd324caf9e8cb86aa6946ebfc074547a3701e
+  sha256: befd4a0a3e37cc2ac01230d171592fed593c35fe41940447c79e82b058cd5b3e
 
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
-  skip: true  # [py<38]
+  skip: true  # [py<39]
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
-    - numpy                                  # [build_platform != target_platform]
+    - numpy 1.22                             # [build_platform != target_platform and py<311]
+    - numpy 1.23                             # [build_platform != target_platform and py==311]
     - {{ compiler('c') }}
   host:
     - python
     - pip
     - setuptools
-    - setuptools_scm
+    - setuptools_scm >=6.2
     - cython >=0.29.30
     - extension-helpers
-    - numpy 1.21.*  # [py<39 and build_platform == target_platform and python_impl == 'cpython']
-    - numpy  # [py>=39 or build_platform != target_platform or python_impl == 'pypy']
     - astropy >=5.0
+    - numpy 1.22                             # [py<311]
+    - numpy 1.23                             # [py==311]
   run:
     - python
     - {{ pin_compatible("numpy") }}
-    - numpy >=1.21
     - astropy >=5.0
-    - pytest-astropy >=0.4
     - gwcs >=0.18
     - matplotlib-base >=3.5
     - scikit-image >=0.19.0
@@ -46,6 +45,8 @@ requirements:
     - scipy >=1.7.0
     - bottleneck
     - tqdm
+    - rasterio
+    - shapely
 
 test:
   requires:
