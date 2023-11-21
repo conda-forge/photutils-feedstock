@@ -1,5 +1,5 @@
 {% set name = "photutils" %}
-{% set version = "1.9.0" %}
+{% set version = "1.10.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: befd4a0a3e37cc2ac01230d171592fed593c35fe41940447c79e82b058cd5b3e
+  sha256: 5e292938d040d1e5166e4e279c14260407deff42e7abef7b33f2310a7b831f91
 
 
 build:
@@ -31,13 +31,13 @@ requirements:
     - setuptools_scm >=6.2
     - cython >=0.29.30
     - extension-helpers
-    - astropy >=5.0
+    - astropy >=5.1
     - numpy 1.22                             # [py<311]
     - numpy 1.23                             # [py==311]
   run:
     - python
     - {{ pin_compatible("numpy") }}
-    - astropy >=5.0
+    - astropy >=5.1
     - gwcs >=0.18
     - matplotlib-base >=3.5
     - scikit-image >=0.19.0
