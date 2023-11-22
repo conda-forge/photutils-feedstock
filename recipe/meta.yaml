@@ -21,9 +21,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
-    - numpy 1.22                             # [build_platform != target_platform and py<311]
-    - numpy 1.23                             # [build_platform != target_platform and py==311]
-    - numpy 1.25                             # [build_platform != target_platform and py>311]
+    - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
     - python
@@ -33,9 +31,7 @@ requirements:
     - cython
     - extension-helpers
     - astropy >=5.1
-    - numpy 1.22                             # [py<311]
-    - numpy 1.23                             # [py==311]
-    - numpy 1.25                             # [py>311]
+    - numpy
   run:
     - python
     - {{ pin_compatible("numpy") }}
