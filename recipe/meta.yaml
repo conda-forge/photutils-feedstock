@@ -23,17 +23,19 @@ requirements:
     - cython                                 # [build_platform != target_platform]
     - numpy 1.22                             # [build_platform != target_platform and py<311]
     - numpy 1.23                             # [build_platform != target_platform and py==311]
+    - numpy 1.25                             # [build_platform != target_platform and py>311]
     - {{ compiler('c') }}
   host:
     - python
     - pip
     - setuptools
     - setuptools_scm >=6.2
-    - cython >=0.29.30
+    - cython
     - extension-helpers
     - astropy >=5.1
     - numpy 1.22                             # [py<311]
     - numpy 1.23                             # [py==311]
+    - numpy 1.25                             # [py>311]
   run:
     - python
     - {{ pin_compatible("numpy") }}
