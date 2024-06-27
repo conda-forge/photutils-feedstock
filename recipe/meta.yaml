@@ -14,7 +14,7 @@ source:
     - pyproject.toml.patch
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<310]
 
@@ -37,7 +37,6 @@ requirements:
     - numpy
   run:
     - python
-    - {{ pin_compatible("numpy") }}
     - astropy >=5.1
     - gwcs >=0.18
     - matplotlib-base >=3.5
