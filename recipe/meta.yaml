@@ -1,5 +1,5 @@
 {% set name = "photutils" %}
-{% set version = "2.0.2" %}
+{% set version = "2.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/p/photutils/photutils-{{ version }}.tar.gz
-  sha256: f07b7d0eadf4b6a761074204915e8ba32f32565d853dd2503c792c4ed481ea52
+  sha256: 4d13709c076809638a483c6f48ac5ad4079b4cd2db4b0b31310d09399334aaef
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [py<310]
+  skip: true  # [py<311]
 
 requirements:
   build:
@@ -39,7 +39,7 @@ requirements:
     - matplotlib-base >=3.7
     - regions >=0.9
     - scikit-image >=0.20
-    - gwcs >=0.19
+    - gwcs >=0.20
     - bottleneck
     - tqdm
     - rasterio
