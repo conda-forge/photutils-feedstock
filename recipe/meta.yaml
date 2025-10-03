@@ -10,7 +10,7 @@ source:
   sha256: 947527f77794469f960d51e6fd7add2fd531b16f2369d4541b1441eb81b3d9f7
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<311]
 
@@ -30,7 +30,7 @@ requirements:
     - cython >=3.1.0,<4
     - extension-helpers >=1.3,<2
     - astropy-base >=5.3
-    - numpy >=2.0.0
+    - numpy
   run:
     - python
     - numpy >=1.25
