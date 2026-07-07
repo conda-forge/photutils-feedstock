@@ -66,24 +66,24 @@ outputs:
         - shapely >=2.0
         - {{ pin_subpackage('photutils-base', max_pin="x.x.x") }}
 
-      test:
-        requires:
-          - pytest-astropy
-        imports:
-          - photutils
-          - photutils.aperture
-          - photutils.background
-          - photutils.centroids
-          - photutils.datasets
-          - photutils.detection
-          - photutils.geometry
-          - photutils.isophote
-          - photutils.morphology
-          - photutils.profiles
-          - photutils.psf
-          - photutils.psf.matching
-          - photutils.segmentation
-          - photutils.utils
+    test:
+      requires:
+        - pytest-astropy
+      imports:
+        - photutils
+        - photutils.aperture
+        - photutils.background
+        - photutils.centroids
+        - photutils.datasets
+        - photutils.detection
+        - photutils.geometry
+        - photutils.isophote
+        - photutils.morphology
+        - photutils.profiles
+        - photutils.psf
+        - photutils.psf.matching
+        - photutils.segmentation
+        - photutils.utils
 
 about:
   home: https://photutils.readthedocs.io/
