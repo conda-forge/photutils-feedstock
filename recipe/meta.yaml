@@ -11,7 +11,6 @@ source:
 
 build:
   number: 1
-  script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<311]
 
 # to avoid creating redundant CI jobs, conda-smithy needs python
@@ -19,9 +18,12 @@ build:
 requirements:
   host:
     - python
+    - pip
 
 outputs:
   - name: photutils-base
+    build:
+      script: {{ PYTHON }} -m pip install . -vv
     requirements:
       build:
         - python                                 # [build_platform != target_platform]
