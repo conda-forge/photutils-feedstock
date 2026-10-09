@@ -45,6 +45,19 @@ test:
     - pytest-astropy
   imports:
     - photutils
+    - photutils.aperture
+    - photutils.background
+    - photutils.centroids
+    - photutils.datasets
+    - photutils.detection
+    - photutils.geometry
+    - photutils.isophote
+    - photutils.morphology
+    - photutils.profiles
+    - photutils.psf
+    - photutils.psf.matching
+    - photutils.segmentation
+    - photutils.utils
 
 outputs:
   - name: photutils-base
