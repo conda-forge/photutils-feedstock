@@ -2,7 +2,7 @@
 {% set version = "3.0.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: photutils-base
   version: {{ version }}
 
 source:
@@ -100,6 +100,7 @@ about:
   dev_url: https://github.com/astropy/photutils
 
 extra:
+  feedstock-name: photutils
   recipe-maintainers:
     - larrybradley
     - bsipocz
