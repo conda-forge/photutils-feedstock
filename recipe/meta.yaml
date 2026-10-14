@@ -1,7 +1,4 @@
 {% set version = "3.1.0" %}
-{% set python_min = python_min | default("3.12") %}
-{% set min_py = python_min | replace('.', '') | int %}
-{% set py = py | default(min_py) %}
 
 package:
   name: photutils-base
@@ -13,9 +10,7 @@ source:
 
 build:
   number: 0
-  {% if py < min_py %}
-  skip: true
-  {% endif %}
+  skip: true  # [py<312]
 
 requirements:
   build:
@@ -68,10 +63,10 @@ outputs:
       script: {{ PYTHON }} -m pip install . -vv
 
 # build this exactly once, on the oldest supported python, to avoid migration issues
-{% if py==min_py and linux64 %}
   - name: photutils
     build:
       noarch: python
+      skip: true  # [not (linux64 and py==312)]
     requirements:
       host:
         - python {{ python_min }}
@@ -106,7 +101,6 @@ outputs:
         - photutils.psf.matching
         - photutils.segmentation
         - photutils.utils
-{% endif %}
 
 about:
   home: https://photutils.readthedocs.io/
