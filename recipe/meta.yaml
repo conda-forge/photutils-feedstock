@@ -1,4 +1,4 @@
-{% set version = "3.0.0" %}
+{% set version = "3.1.0" %}
 {% set python_min = python_min | default("3.11") %}
 {% set min_py = python_min | replace('.', '') | int %}
 {% set py = py | default(min_py) %}
@@ -9,10 +9,10 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/p/photutils/photutils-{{ version }}.tar.gz
-  sha256: 5e1ca2be9433e1e1f9f6d477e1e6c8029755caceefb4e349048955e3cb825529
+  sha256: 4d0b77027ac16f22973f4ff9a89f3a3ca26766299606528caf32ced4e803608e
 
 build:
-  number: 2
+  number: 0
   {% if py < min_py %}
   skip: true
   {% endif %}
